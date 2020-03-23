@@ -1,21 +1,49 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, graphql } from "gatsby"
 
-import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
+import Layout from '../components/Layout';
+import CandidateForm from '../components/CandidateForm';
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
-)
+export const query = graphql`
+    query {
+        allContentfulPath(sort: {order: ASC, fields: createdAt}, filter: {node_locale: {eq: "en-US"}}) {
+            edges {
+                node {
+                    name
+                }
+            }
+        }
+    }
+`;
 
-export default IndexPage
+export default class App extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            form: true
+        };
+        this.handleContinue = this.handleContinue.bind(this);
+        this.paths = props.data.allContentfulPath.edges;
+    }
+
+    handleContinue() {
+        this.setState({ form: false });
+    }
+
+    render() {
+        const listPath = this.paths.map(({ node: { name, id } }) => (
+            <Link key={id} to={name.toLowerCase()} className="category">{ name }</Link>
+        ));
+        let content;
+        if (this.state.form) {
+            content = <CandidateForm continue={this.handleContinue} />
+        } else {
+            content = listPath;
+        }
+        return (
+            <Layout>
+                { content }
+            </Layout>
+        );
+    }
+}

@@ -1,0 +1,23 @@
+.task-manager {
+    &__task {
+        background: #264668;
+        padding: 40px;
+        border-radius: 16px;
+    }
+    &__description {
+        margin: 10px;
+        opacity: .5;
+    }
+    &__status {
+        bottom: 0;
+        position: fixed;
+        width: 100%;
+        left: 0;
+        background: #264668;
+        padding: 32px;
+        border-radius: 16px 16px 0 0;
+        font-size: 2rem;
+        text-align: center;
+        color: var(--orange-color);
+    }
+}

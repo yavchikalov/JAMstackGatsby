@@ -1,0 +1,15 @@
+.task {
+    &__question {
+        font-size: 1.4rem;
+        margin-bottom: 64px;
+        & p {
+            font-size: 1.6rem;
+            color: var(--orange-color);
+            margin-bottom: 24px;
+            text-shadow: 0 0 10px #000;
+        }
+    }
+    &__answer {
+        margin-bottom: 40px;
+    }
+}

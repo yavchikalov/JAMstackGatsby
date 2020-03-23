@@ -1,0 +1,17 @@
+.candidate {
+    background: #264668;
+    padding: 40px;
+    border-radius: 16px;
+    &__fullname {
+        font-size: 1.4rem;
+        text-shadow: 0 0 10px #000;
+        margin-bottom: 40px;
+        color: var(--orange-color);
+        & > span {
+            color: #fff;
+        }
+    }
+    &__answer {
+        margin-bottom: 40px;
+    }
+}

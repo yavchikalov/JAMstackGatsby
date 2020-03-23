@@ -1,0 +1,29 @@
+.answer {
+    border: 2px solid var(--orange-color);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, .5);
+    &__task {
+        &-question {
+            font-size: 1.6rem;
+            color: var(--orange-color);
+            margin-bottom: 24px;
+            text-shadow: 0 0 10px #000;
+        }
+        &-code {
+            font-size: 1.4rem;
+        }
+    }
+    &__content {
+        margin-top: 40px;
+        & > p {
+            font-size: 1.6rem;
+            color: var(--orange-color);
+            text-shadow: 0 0 10px #000;
+            margin-bottom: 8px;
+        }
+        & code {
+            font-size: 1.4rem;
+        }
+    }
+}

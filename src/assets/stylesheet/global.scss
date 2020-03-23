@@ -1,0 +1,132 @@
+:root {
+    --main-background: linear-gradient(306.21deg, #1C3550 25.35%, #204060 100%);
+    --orange-color: #FFCF52;
+    --blue-color: #4174AA;
+}
+
+html, body {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+    color: #fff;
+    font-family: sans-serif;
+    * {
+        box-sizing: border-box;
+    }
+    p {
+        margin: 0;
+        padding: 0;
+    }
+    pre {
+        direction: ltr;
+        text-align: left;
+        white-space: pre;
+        word-spacing: normal;
+        tab-size: 4;
+        hyphens: none;
+        margin: 0;
+    }
+    code {
+        direction: ltr;
+        text-align: left;
+        white-space: pre-wrap;
+        word-spacing: normal;
+        tab-size: 4;
+        hyphens: none;
+        position: relative;
+        margin: 0;
+    }
+
+    textarea {
+        display: block;
+        border: none;
+        width: 100%;
+        box-sizing: border-box;
+        min-height: 100px;
+        outline: none;
+        font-size: 1.1rem;
+        color: #fff;
+        border-bottom: 1px solid rgba(255, 255, 255, 0);
+        background: rgba(0, 0, 0, 0.2);
+        box-shadow: inset 0px 2px 2px rgba(0, 0, 0, 0.1);
+        border-radius: 6px;
+        max-width: 100%;
+        min-width: 100%;
+        padding: 16px;
+        &::placeholder {
+            color: inherit;
+            font-size: inherit;
+            opacity: .2;
+        }
+    }
+}
+
+.app {
+    background: var(--main-background);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    &__content {
+        flex-grow: 1;
+        max-width: 1240px;
+        width: 90vw;
+        margin: 0 auto;
+        padding: 64px 0;
+    }
+}
+
+.finally {
+    text-align: center;
+    &__content {
+        padding: 10vh 0;
+        color: var(--orange-color);
+        font-size: 2rem;
+        text-shadow: 0 0 10px #000;
+    }
+    &__description {
+        margin-bottom: 64px;
+    }
+}
+
+.category {
+    border: 1px solid #60748A;
+    padding: 40px;
+    text-shadow: 0px 0px 8px #AEE2F2;
+    min-width: 300px;
+    background: rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 5px 0px #60748A;
+    font-size: 2rem;
+    transition: all .3s;
+    cursor: pointer;
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    margin-bottom: 40px;
+    &:last-child {
+        margin-bottom: 0;
+    }
+    &:hover {
+        color: var(--orange-color);
+        background: var(--blue-color);
+    }
+}
+
+.header {
+    padding: 20px;
+    text-align: center;
+    &__logo {
+        max-width: 400px;
+        cursor: pointer;
+        width: 100%
+    }
+}
+
+.candidates {
+    &__answer {
+        margin-bottom: 40px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}

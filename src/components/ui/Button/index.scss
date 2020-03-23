@@ -1,0 +1,25 @@
+.button {
+    background: transparent;
+    outline: none;
+    color: #FFCF52;
+    border: 1px solid #FFCF52;
+    box-sizing: border-box;
+    border-radius: 32px;
+    font-weight: normal;
+    line-height: 1.4;
+    padding: 16px;
+    width: 100%;
+    text-transform: uppercase;
+    text-align: center;
+    max-width: 300px;
+    margin-left: auto;
+    font-size: 1rem;
+    display: block;
+    cursor: pointer;
+    transition: all .3s;
+    &:hover {
+        background: var(--orange-color);
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        color: #000;
+    }
+}
