@@ -8,24 +8,33 @@ export default class TaskManager extends React.Component {
     constructor(props) {
         super(props);
 
-        if (!window.candidateId) document.location.href = '/';
-
         this.state = {
             tasks: props.tasks,
             activeIndex: 0,
             answer: '',
-            candidateId: window.candidateId
+            candidates: null,
+            candidateId: null
         }
         
         this.handleAnswer = this.handleAnswer.bind(this);
         this.handleChange = this.handleChange.bind(this);
     }
 
+    componentDidMount() {
+        if (!window.candidateId) {
+            document.location.href = '/';
+        } else {
+            this.setState({
+                candidateId: window.candidateId,
+                candidates: JSON.parse(window.localStorage.getItem('candidates'))
+            })
+        }
+    }
+
     handleAnswer() {
         const { description, content } = this.state.tasks[this.state.activeIndex].node;
             
-        const candidates = JSON.parse(localStorage.getItem('candidates'));
-        const candidate = candidates.find(({ candidateId }) => candidateId === this.state.candidateId);
+        const candidate = this.state.candidates.find(({ candidateId }) => candidateId === this.state.candidateId);
 
         candidate.tasks.push({
             question: description.description,
@@ -33,7 +42,7 @@ export default class TaskManager extends React.Component {
             answer: this.state.answer
         });
 
-        localStorage.setItem('candidates', JSON.stringify(candidates));
+        window.localStorage.setItem('candidates', JSON.stringify(this.state.candidates));
 
         if (this.state.activeIndex === this.state.tasks.length - 1) {
             navigate('/finally');
